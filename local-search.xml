@@ -8,7 +8,7 @@
     <link href="/2023/09/09/test1/"/>
     <url>/2023/09/09/test1/</url>
     
-    <content type="html"><![CDATA[<p>这是一篇测试文章！</p><p><img src="/img/bgc.jpg" alt="图片引用"></p><p>便签</p><p class="note note-primary">标签</p><p class="note note-success">标签</p><p class="note note-warning">标签</p><p class="note note-info">标签</p><p>行内标签<br><span class="label label-primary">Label</span><br><span class="label label-success">Label</span></p><p>按钮<br><a class="btn" href="url" title="title">text1</a></p>]]></content>
+    <content type="html"><![CDATA[<p>这是一篇测试文章！</p><p><img src="/img/bgc.jpg" alt="图片引用"></p><p>便签</p><p class="note note-primary">标签1</p><p class="note note-success">标签2</p><p class="note note-warning">标签3</p><p class="note note-info">标签4</p><p>行内标签<br><span class="label label-primary">Label</span><br><span class="label label-success">Label</span></p><p>按钮<br><a class="btn" href="url" title="title">text1</a></p>]]></content>
     
     
     <categories>
