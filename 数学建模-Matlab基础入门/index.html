@@ -1,0 +1,738 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Chevey">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本文介绍Matlab的基本用法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学建模--Matlab基础入门">
+<meta property="og:url" content="https://chevey339.github.io/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-Matlab%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="Chevey&#39;s blog">
+<meta property="og:description" content="本文介绍Matlab的基本用法">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-30T13:05:17.000Z">
+<meta property="article:modified_time" content="2023-11-30T13:50:29.107Z">
+<meta property="article:author" content="Chevey">
+<meta property="article:tag" content="Matlab">
+<meta property="article:tag" content="数学建模">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>数学建模--Matlab基础入门 - Chevey&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chevey339.github.io","root":"/","version":"1.9.5","typing":{"enable":false,"typeSpeed":70,"cursorChar":"~","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Chevey&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">数学建模--Matlab基础入门</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-30 21:05" pubdate>
+          2023年10月30日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">数学建模--Matlab基础入门</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>本文介绍Matlab的基本用法</p>
+</blockquote>
+<span id="more"></span>
+
+<p>此为笔者初次学习Matlab所记录，若有错误请指出，Thanks!</p>
+<h3 id="Matlab基本的小常识"><a href="#Matlab基本的小常识" class="headerlink" title="Matlab基本的小常识"></a>Matlab基本的小常识</h3><h4 id="1-在每一行的语句后面加上分号-表示不显示运行结果"><a href="#1-在每一行的语句后面加上分号-表示不显示运行结果" class="headerlink" title="1. 在每一行的语句后面加上分号;表示不显示运行结果"></a>1. 在每一行的语句后面加上分号<code>;</code>表示不显示运行结果</h4>   <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Matlab">a = <span class="hljs-number">3</span>;<br>a = <span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="2-多行注释-选中要注释的若干语句-快捷键Ctrl-R"><a href="#2-多行注释-选中要注释的若干语句-快捷键Ctrl-R" class="headerlink" title="2. 多行注释:选中要注释的若干语句,快捷键Ctrl+R"></a>2. 多行注释:选中要注释的若干语句,快捷键<code>Ctrl+R</code></h4><h4 id="3-取消注释-选中要取消注释的语句-快捷键Ctrl-T"><a href="#3-取消注释-选中要取消注释的语句-快捷键Ctrl-T" class="headerlink" title="3. 取消注释:选中要取消注释的语句,快捷键Ctrl+T"></a>3. 取消注释:选中要取消注释的语句,快捷键<code>Ctrl+T</code></h4><h4 id="4-clear可以清楚工作区的所有变量"><a href="#4-clear可以清楚工作区的所有变量" class="headerlink" title="4. clear可以清楚工作区的所有变量"></a>4. <code>clear</code>可以清楚工作区的所有变量</h4>   <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Matlab">clear<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="5-clc可以清除命令行窗口中的所有文本-让屏幕变得干净"><a href="#5-clc可以清除命令行窗口中的所有文本-让屏幕变得干净" class="headerlink" title="5. clc可以清除命令行窗口中的所有文本,让屏幕变得干净"></a>5. <code>clc</code>可以清除命令行窗口中的所有文本,让屏幕变得干净</h4>   <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Matlab">clc<br></code></pre></td></tr></table></figure>
+
+<h4 id="6-clear-clc-分号也用于区分行"><a href="#6-clear-clc-分号也用于区分行" class="headerlink" title="6. clear;clc  分号也用于区分行"></a>6. <code>clear;clc</code>  分号也用于区分行</h4><p>   这两条一起使用，起到“初始化”的作用，防止之前的结果对新脚本文件产生干扰。</p>
+<h3 id="一些常见函数"><a href="#一些常见函数" class="headerlink" title="一些常见函数"></a>一些常见函数</h3><h4 id="1-disp-函数"><a href="#1-disp-函数" class="headerlink" title="1. disp 函数"></a>1. <code>disp</code> 函数</h4>   <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs Matlab"><span class="hljs-built_in">disp</span>(<span class="hljs-string">&#x27;类似于c语言中的printf()函数&#x27;</span>)<br>a = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]    <span class="hljs-comment">%同一行中间用逗号分隔，也可以不用逗号，直接用空格</span><br>a = [<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>]<br><span class="hljs-built_in">disp</span>(a) <br><span class="hljs-comment">% 注意，disp函数比较特殊，这里用不用分号都可以</span><br><span class="hljs-built_in">disp</span>(a);<br></code></pre></td></tr></table></figure>
+<h4 id="2-Matlab中两个字符串的合并方法"><a href="#2-Matlab中两个字符串的合并方法" class="headerlink" title="2. Matlab中两个字符串的合并方法"></a>2. Matlab中两个字符串的合并方法</h4>   <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Matlab"><span class="hljs-comment">% a. strcat(str1,str2……,strn) </span><br>strcat(<span class="hljs-string">&#x27;字符串1&#x27;</span>,<span class="hljs-string">&#x27;字符串2&#x27;</span>) <br><span class="hljs-comment">% b. [str 1,str 2，……, str n]或[str1  str2  ……  strn]</span><br>[<span class="hljs-string">&#x27;字符串1&#x27;</span>  <span class="hljs-string">&#x27;字符串2&#x27;</span>]<br>[<span class="hljs-string">&#x27;字符串1&#x27;</span>,<span class="hljs-string">&#x27;字符串2&#x27;</span>]<br></code></pre></td></tr></table></figure>
+<h4 id="3-num2str-将数字转换为字符串"><a href="#3-num2str-将数字转换为字符串" class="headerlink" title="3. num2str 将数字转换为字符串"></a>3. <code>num2str</code> 将数字转换为字符串</h4>   <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Matlab">c = <span class="hljs-number">100</span><br>num2str(c)<br><span class="hljs-built_in">disp</span>([<span class="hljs-string">&#x27;c的取值为&#x27;</span> num2str(c)])<br><span class="hljs-built_in">disp</span>(strcat(<span class="hljs-string">&#x27;c的取值为&#x27;</span>, num2str(c)))<br></code></pre></td></tr></table></figure>
+<h4 id="4-input函数"><a href="#4-input函数" class="headerlink" title="4. input函数"></a>4. <code>input</code>函数</h4>   <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Matlab"><span class="hljs-comment">% 一般我们会将输入的数、向量、矩阵、字符串等赋给一个变量，这里赋给A</span><br>A = input(<span class="hljs-string">&#x27;请输入A：&#x27;</span>);<br>B = input(<span class="hljs-string">&#x27;请输入B：&#x27;</span>)<br><span class="hljs-comment">% 注意观察工作区，并体会input后面加分号和不加分号的区别</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="5-sum函数"><a href="#5-sum函数" class="headerlink" title="5. sum函数"></a>5. <code>sum</code>函数</h4>   <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs Matlab"><span class="hljs-comment">% 如果是向量（无论是行向量还是列向量），都是直接求和</span><br>E = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]<br>sum(E)<br>E = [<span class="hljs-number">1</span>;<span class="hljs-number">2</span>;<span class="hljs-number">3</span>]<br>sum(E)<br><span class="hljs-comment">% 如果是矩阵，则需要根据行和列的方向作区分</span><br>E = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>;<span class="hljs-number">3</span>,<span class="hljs-number">4</span>;<span class="hljs-number">5</span>,<span class="hljs-number">6</span>]<br><span class="hljs-comment">% a=sum(x); %按列求和(得到一个行向量）</span><br>a = sum(E)<br>a = sum(E,<span class="hljs-number">1</span>)<br><span class="hljs-comment">% a=sum(x,2); %按行求和(得到一个列向量）</span><br>a = sum(E,<span class="hljs-number">2</span>)<br><span class="hljs-comment">% a=sum(x(:));%对整个矩阵求和</span><br>a = sum(sum(E))<br>a = sum(E(:))<br></code></pre></td></tr></table></figure>
+<h4 id="6-Matlab中如何提取矩阵中指定位置的元素？"><a href="#6-Matlab中如何提取矩阵中指定位置的元素？" class="headerlink" title="6. Matlab中如何提取矩阵中指定位置的元素？"></a>6. Matlab中如何提取矩阵中指定位置的元素？</h4>   <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs Matlab"><span class="hljs-comment">% （1）取指定行和列的一个元素（输出的是一个值）</span><br>clc;A=[<span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">4</span> <span class="hljs-number">1</span>/<span class="hljs-number">3</span> <span class="hljs-number">3</span>;<span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">4</span> <span class="hljs-number">1</span>/<span class="hljs-number">3</span> <span class="hljs-number">3</span>;<span class="hljs-number">1</span>/<span class="hljs-number">4</span> <span class="hljs-number">1</span>/<span class="hljs-number">4</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span>/<span class="hljs-number">3</span> <span class="hljs-number">1</span>/<span class="hljs-number">2</span>;<span class="hljs-number">3</span> <span class="hljs-number">3</span> <span class="hljs-number">3</span> <span class="hljs-number">1</span> <span class="hljs-number">3</span>;<span class="hljs-number">1</span>/<span class="hljs-number">3</span> <span class="hljs-number">1</span>/<span class="hljs-number">3</span> <span class="hljs-number">2</span> <span class="hljs-number">1</span>/<span class="hljs-number">3</span> <span class="hljs-number">1</span>];<br>A<br>A(<span class="hljs-number">2</span>,<span class="hljs-number">1</span>)<br>A(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>)<br><span class="hljs-comment">% （2）取指定的某一行的全部元素（输出的是一个行向量）</span><br>clc;A<br>A(<span class="hljs-number">2</span>,:)<br>A(<span class="hljs-number">5</span>,:)<br><span class="hljs-comment">% （3）取指定的某一列的全部元素（输出的是一个列向量）</span><br>clc;A<br>A(:,<span class="hljs-number">1</span>)<br>A(:,<span class="hljs-number">3</span>)<br><span class="hljs-comment">% （4）取指定的某些行的全部元素（输出的是一个矩阵）</span><br>clc;A<br>A([<span class="hljs-number">2</span>,<span class="hljs-number">5</span>],:)      <span class="hljs-comment">% 只取第二行和第五行（一共2行）</span><br>A(<span class="hljs-number">2</span>:<span class="hljs-number">5</span>,:)        <span class="hljs-comment">% 取第二行到第五行（一共4行）</span><br>A(<span class="hljs-number">2</span>:<span class="hljs-number">2</span>:<span class="hljs-number">5</span>,:)     <span class="hljs-comment">% 取第二行和第四行 （从2开始，每次递增2个单位，到5结束）</span><br><span class="hljs-number">1</span>:<span class="hljs-number">3</span>:<span class="hljs-number">10</span>        <span class="hljs-comment">%等差数列 第一项是首项 第二项是公差d(默认为1) 第三项是结束</span><br><span class="hljs-number">10</span>:<span class="hljs-number">-1</span>:<span class="hljs-number">1</span><br>A(<span class="hljs-number">2</span>:<span class="hljs-keyword">end</span>,:)      <span class="hljs-comment">% 取第二行到最后一行</span><br>A(<span class="hljs-number">2</span>:<span class="hljs-keyword">end</span><span class="hljs-number">-1</span>,:)    <span class="hljs-comment">% 取第二行到倒数第二行</span><br><span class="hljs-comment">% （5）取全部元素(按列拼接的，最终输出的是一个列向量)</span><br>clc;A<br>A(:)<br></code></pre></td></tr></table></figure>
+
+<h4 id="7-size函数"><a href="#7-size函数" class="headerlink" title="7. size函数"></a>7. <code>size</code>函数</h4>   <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs Matlab">A = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>]<br>B = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>]<br><span class="hljs-built_in">size</span>(A)<br><span class="hljs-built_in">size</span>(B)<br><span class="hljs-comment">% size(A)函数是用来求矩阵A的大小的,它返回一个行向量，第一个元素是矩阵的行数，第二个元素是矩阵的列数</span><br>[r,c] = <span class="hljs-built_in">size</span>(A)<br><span class="hljs-comment">% 将矩阵A的行数返回到第一个变量r，将矩阵的列数返回到第二个变量c</span><br>r = <span class="hljs-built_in">size</span>(A,<span class="hljs-number">1</span>)  <span class="hljs-comment">%返回行数</span><br>c = <span class="hljs-built_in">size</span>(A,<span class="hljs-number">2</span>) <span class="hljs-comment">%返回列数</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="8-repmat函数"><a href="#8-repmat函数" class="headerlink" title="8. repmat函数"></a>8. <code>repmat</code>函数</h4>   <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Matlab"><span class="hljs-comment">% B = repmat(A,m,n):将矩阵A复制m×n块，即把A作为B的元素，B由m×n个A平铺而成。</span><br>A = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>]<br>B = <span class="hljs-built_in">repmat</span>(A,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>)<br>B = <span class="hljs-built_in">repmat</span>(A,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="category-chain-item">数学建模</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/Matlab/" class="category-chain-item">Matlab</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Matlab/" class="print-no-link">#Matlab</a>
+      
+        <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="print-no-link">#数学建模</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>数学建模--Matlab基础入门</div>
+      <div>https://chevey339.github.io/数学建模-Matlab基础入门/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Chevey</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年10月30日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Math1/" title="大学数学基础">
+                        <span class="hidden-mobile">大学数学基础</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/vvd_js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+
+<script>
+!
+function() {
+function n(n, e, t) {
+return n.getAttribute(e) || t
+}
+function e(n) {
+return document.getElementsByTagName(n)
+}
+function t() {
+var t = e("script"),
+o = t.length,
+i = t[o - 1];
+return {
+l: o,
+z: n(i, "zIndex", -1), //置于主页面背后
+o: n(i, "opacity", .5), //线条透明度
+c: n(i, "color", "0,0,0"), //线条颜色
+n: n(i, "count", 100) //线条数量
+}
+}
+function o() {
+a = m.width = window.innerWidth ||
+document.documentElement.clientWidth || document.body.clientWidth,
+c = m.height = window.innerHeight ||
+document.documentElement.clientHeight || document.body.clientHeight
+}
+function i() {
+r.clearRect(0, 0, a, c);
+var n, e, t, o, m, l;
+s.forEach(function(i, x) {
+for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 :
+1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1,
+1), e = x + 1; e < u.length; e++) n = u[e],
+null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y, l
+= o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o,
+i.y -= .03 * m), t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t /
+2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y),
+r.lineTo(n.x, n.y), r.stroke()))
+}),
+x(i)
+}
+var a, c, u, m = document.createElement("canvas"),
+d = t(),
+l = "c_n" + d.l,
+r = m.getContext("2d"),
+x = window.requestAnimationFrame || window.webkitRequestAnimationFrame
+|| window.mozRequestAnimationFrame || window.oRequestAnimationFrame ||
+window.msRequestAnimationFrame ||
+function(n) {
+window.setTimeout(n, 1e3 / 45)
+},
+w = Math.random,
+y = {
+x: null,
+y: null,
+max: 2e4
+};
+m.id = l,
+m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z +
+";opacity:" + d.o,
+e("body")[0].appendChild(m),
+o(),
+window.onresize = o,
+window.onmousemove = function(n) {
+n = n || window.event,
+y.x = n.clientX,
+y.y = n.clientY
+},
+window.onmouseout = function() {
+y.x = null,
+y.y = null
+};
+for (var s = [], f = 0; d.n > f; f++) {
+var h = w() * a,
+g = w() * c,
+v = 2 * w() - 1,
+p = 2 * w() - 1;
+s.push({
+x: h,
+y: g,
+xa: v,
+ya: p,
+max: 6e3
+})
+}
+u = s.concat([y]),
+setTimeout(function() {
+i()
+},
+100)
+} ();
+</script>
+
+
+</body>
+</html>
