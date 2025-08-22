@@ -1,0 +1,18 @@
+{
+  "app": "MyApp",
+  "latest": {
+    "version": "1.4.2",
+    "build": 120,
+    "releasedAt": "2025-08-20T10:12:00Z",
+    "notes": "修复若干崩溃、提高启动速度",
+    "mandatory": false,
+    "downloads": {
+      "ios": "https://apps.apple.com/app/id123456789",
+      "android": "https://username.github.io/your-repo/downloads/MyApp-1.4.2.apk"
+    }
+  },
+  "history": [
+    {"version": "1.4.1", "releasedAt": "2025-07-10", "notes": "UI 调整"},
+    {"version": "1.4.0", "releasedAt": "2025-06-01", "notes": "新增深色模式"}
+  ]
+}
