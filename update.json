@@ -1,10 +1,10 @@
 {
-  "app": "MyApp",
+  "app": "Kelivo",
   "latest": {
-    "version": "1.4.2",
-    "build": 120,
+    "version": "1.0.1",
+    "build": 1,
     "releasedAt": "2025-08-20T10:12:00Z",
-    "notes": "修复若干崩溃、提高启动速度",
+    "notes": "修复若干崩溃、提高启动速度\n修复若干崩溃、提高启动速度\n修复若干崩溃、提高启动速度\n修复若干崩溃、提高启动速度\n修复若干崩溃、提高启动速度\n修复若干崩溃、提高启动速度",
     "mandatory": false,
     "downloads": {
       "ios": "https://apps.apple.com/app/id123456789",
@@ -12,7 +12,6 @@
     }
   },
   "history": [
-    {"version": "1.4.1", "releasedAt": "2025-07-10", "notes": "UI 调整"},
-    {"version": "1.4.0", "releasedAt": "2025-06-01", "notes": "新增深色模式"}
+    {"version": "1.0.0", "releasedAt": "2025-08-28", "notes": "发布"}
   ]
 }
