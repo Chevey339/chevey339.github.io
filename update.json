@@ -1,9 +1,9 @@
 {
   "app": "Kelivo",
   "latest": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "build": 1,
-    "releasedAt": "2025-08-20T10:12:00Z",
+    "releasedAt": "2025-08-31T10:12:00Z",
     "notes": "修复若干崩溃、提高启动速度",
     "mandatory": false,
     "downloads": {
