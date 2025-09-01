@@ -1,14 +1,14 @@
 {
   "app": "Kelivo",
   "latest": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "build": 1,
-    "releasedAt": "2025-08-31T10:12:00Z",
-    "notes": "修复若干崩溃、提高启动速度",
+    "releasedAt": "2025-09-01T23:05:00Z",
+    "notes": "添加可以更改供应商类型 \n添加学习模式 \n添加批量分类添加模型 \nmarkdown渲染格式优化(可能会有bug) \n增加默认字体大小",
     "mandatory": false,
     "downloads": {
-      "ios": "https://apps.apple.com/app/id123456789",
-      "android": "https://username.github.io/your-repo/downloads/MyApp-1.4.2.apk"
+      "ios": "https://github.com/Chevey339/kelivo/releases/latest",
+      "android": "https://github.com/Chevey339/kelivo/releases/latest"
     }
   },
   "history": [
