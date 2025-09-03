@@ -1,10 +1,10 @@
 {
   "app": "Kelivo",
   "latest": {
-    "version": "1.0.2",
+    "version": "1.0.3",
     "build": 1,
-    "releasedAt": "2025-09-02T23:05:00Z",
-    "notes": "添加代码块折叠 \n修复mcp禁用开关没有效果 \n修复禁用供应商依旧可以选择 \n修改滑动侧边栏动画为平移",
+    "releasedAt": "2025-09-03T23:05:00Z",
+    "notes": "添加 Google/gemini 支持内置搜索 \niOS添加打开关闭侧边栏震动 \n修复iOS夜间模式打开时候启动白屏问题",
     "mandatory": false,
     "downloads": {
       "ios": "https://github.com/Chevey339/kelivo/releases/latest",
@@ -12,6 +12,7 @@
     }
   },
   "history": [
+    {"version": "1.0.2", "releasedAt": "2025-09-02", "notes": "添加代码块折叠 \n修复mcp禁用开关没有效果 \n修复禁用供应商依旧可以选择 \n修改滑动侧边栏动画为平移"},
     {"version": "1.0.1", "releasedAt": "2025-09-01", "notes": "添加可以更改供应商类型 \n添加学习模式 \n添加批量分类添加模型 \nmarkdown渲染格式优化(可能会有bug) \n增加默认字体大小"},
     {"version": "1.0.0", "releasedAt": "2025-08-28", "notes": "发布"}
   ]
