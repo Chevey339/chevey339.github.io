@@ -1,10 +1,10 @@
 {
   "app": "Kelivo",
   "latest": {
-    "version": "1.0.4",
+    "version": "1.0.5",
     "build": 1,
     "releasedAt": "2025-09-03T23:05:00Z",
-    "notes": "修复删除全部对话功能\n完善多语言支持，新增“繁体中文”\n修复markdown渲染问题\n优化历史聊天记录在重新对话后的排序",
+    "notes": "修复iOS系统语言为简体中文时显示为繁体的错误\n备份功能优化，支持覆盖导入和合并导入",
     "mandatory": false,
     "downloads": {
       "ios": "https://github.com/Chevey339/kelivo/releases/latest",
@@ -12,6 +12,7 @@
     }
   },
   "history": [
+    {"version": "1.0.4", "releasedAt": "2025-09-05", "notes": "修复删除全部对话功能\n完善多语言支持，新增“繁体中文”\n修复markdown渲染问题\n优化历史聊天记录在重新对话后的排序"},
     {"version": "1.0.3", "releasedAt": "2025-09-03", "notes": "添加 Google/gemini 支持内置搜索 \niOS添加打开关闭侧边栏震动 \n修复iOS夜间模式打开时候启动白屏问题"},
     {"version": "1.0.2", "releasedAt": "2025-09-02", "notes": "添加代码块折叠 \n修复mcp禁用开关没有效果 \n修复禁用供应商依旧可以选择 \n修改滑动侧边栏动画为平移"},
     {"version": "1.0.1", "releasedAt": "2025-09-01", "notes": "添加可以更改供应商类型 \n添加学习模式 \n添加批量分类添加模型 \nmarkdown渲染格式优化(可能会有bug) \n增加默认字体大小"},
