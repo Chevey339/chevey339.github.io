@@ -2,7 +2,7 @@
   "app": "Kelivo",
   "latest": {
     "version": "1.0.6",
-    "build": 1,
+    "build": 3,
     "releasedAt": "2025-09-07T23:05:00Z",
     "notes": "修复了一些备份和生图的bug",
     "mandatory": false,
