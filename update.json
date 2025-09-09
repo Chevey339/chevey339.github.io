@@ -1,10 +1,10 @@
 {
   "app": "Kelivo",
   "latest": {
-    "version": "1.0.6",
-    "build": 1,
-    "releasedAt": "2025-09-07T23:05:00Z",
-    "notes": "修复了一些备份和生图的bug",
+    "version": "1.0.8",
+    "build": 3,
+    "releasedAt": "2025-09-09T23:05:00Z",
+    "notes": "新增内置模型\n修复生图模型对话图片第二张无法生成需重新对话的问题\n模型选择弹出窗口中的提供商顺序现在与提供商列表中的顺序一致\n完善捐赠页面",
     "mandatory": false,
     "downloads": {
       "ios": "https://github.com/Chevey339/kelivo/releases/latest",
@@ -12,6 +12,7 @@
     }
   },
   "history": [
+    {"version": "1.0.6", "releasedAt": "2025-09-07", "notes": "修复了一些备份和生图的bug"},
     {"version": "1.0.5", "releasedAt": "2025-09-06", "notes": "修复iOS系统语言为简体中文时显示为繁体的错误\n备份功能优化，支持覆盖导入和合并导入"},
     {"version": "1.0.4", "releasedAt": "2025-09-05", "notes": "修复删除全部对话功能\n完善多语言支持，新增“繁体中文”\n修复markdown渲染问题\n优化历史聊天记录在重新对话后的排序"},
     {"version": "1.0.3", "releasedAt": "2025-09-03", "notes": "添加 Google/gemini 支持内置搜索 \niOS添加打开关闭侧边栏震动 \n修复iOS夜间模式打开时候启动白屏问题"},
